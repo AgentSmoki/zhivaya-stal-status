@@ -1,31 +1,31 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+# Внешний мониторинг «Живой стали» (ADR-008, дополнен 2026-11-02).
+# Каждые 5 минут GitHub Actions проверяет сайт, /api/health и /api/ready по ключевому слову;
+# /api/health — ещё и с точки в России через Globalping. Тревоги — ботом в служебный чат
+# (секреты NOTIFICATION_TELEGRAM_*), каждый сбой — задачей в этом репозитории.
+owner: AgentSmoki
+repo: zhivaya-stal-status
+user-agent: zhivaya-stal-status
 
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
-
-status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
-  navbar:
-    - title: Status
-      href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+  - name: Сайт
+    slug: site
+    url: https://stal.neuroimpuls.ru/
+    __dangerous__body_down_if_text_missing: Живая сталь
+  - name: API
+    slug: api
+    url: https://stal.neuroimpuls.ru/api/health
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+  - name: Готовность — база, очередь, воркер
+    slug: ready
+    url: https://stal.neuroimpuls.ru/api/ready
+    __dangerous__body_down_if_text_missing: '"status":"ok"'
+  - name: API из России
+    slug: api-russia
+    url: https://stal.neuroimpuls.ru/api/health
+    type: globalping
+    location: Russia
+    globalpingTimeout: 30
+  # Временная проверка канала тревог: адрес отвечает 404 — должна прийти тревога в служебный чат
+  - name: Проверка тревоги
+    slug: alert-test
+    url: https://stal.neuroimpuls.ru/api/upptime-alert-test

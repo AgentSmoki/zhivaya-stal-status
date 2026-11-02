@@ -25,7 +25,3 @@ sites:
     type: globalping
     location: Russia
     globalpingTimeout: 30
-  # Временная проверка канала тревог: адрес отвечает 404 — должна прийти тревога в служебный чат
-  - name: Проверка тревоги
-    slug: alert-test
-    url: https://stal.neuroimpuls.ru/api/upptime-alert-test

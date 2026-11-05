@@ -1,4 +1,4 @@
-# Внешний мониторинг «Живой стали» (ADR-008, дополнен 2026-11-02).
+# Внешний мониторинг «СтальЧат» — рабочее имя проекта «Живая сталь» (ADR-008, дополнен 2026-11-02).
 # Каждые 5 минут GitHub Actions проверяет сайт, /api/health и /api/ready по ключевому слову;
 # /api/health — ещё и с точки в России через Globalping. Тревоги — ботом в служебный чат
 # (секреты NOTIFICATION_TELEGRAM_*), каждый сбой — задачей в этом репозитории.
@@ -10,7 +10,8 @@ sites:
   - name: Сайт
     slug: site
     url: https://stal.neuroimpuls.ru/
-    __dangerous__body_down_if_text_missing: Живая сталь
+    # Сервис переименован в «СтальЧат» 2026-11-05: название есть и в заголовке, и в шапке страницы
+    __dangerous__body_down_if_text_missing: СтальЧат
   - name: API
     slug: api
     url: https://stal.neuroimpuls.ru/api/health

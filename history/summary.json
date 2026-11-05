@@ -4,18 +4,20 @@
     "url": "https://stal.neuroimpuls.ru/",
     "icon": "https://icons.duckduckgo.com/ip3/stal.neuroimpuls.ru.ico",
     "slug": "site",
-    "status": "up",
+    "status": "down",
     "uptime": "100.00%",
-    "uptimeDay": "100.00%",
+    "uptimeDay": "99.99%",
     "uptimeWeek": "100.00%",
     "uptimeMonth": "100.00%",
     "uptimeYear": "100.00%",
-    "time": 597,
-    "timeDay": 634,
-    "timeWeek": 597,
-    "timeMonth": 597,
-    "timeYear": 597,
-    "dailyMinutesDown": {}
+    "time": 638,
+    "timeDay": 720,
+    "timeWeek": 638,
+    "timeMonth": 638,
+    "timeYear": 638,
+    "dailyMinutesDown": {
+      "2026-11-05": 0
+    }
   },
   {
     "name": "API",
